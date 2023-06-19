@@ -2,9 +2,7 @@
 
 import '../../../styles/globals.css';
 
-import '@rainbow-me/rainbowkit/styles.css';
-
-import { getDefaultWallets, RainbowKitProvider } from '@rainbow-me/rainbowkit';
+import { getDefaultWallets } from '@rainbow-me/rainbowkit';
 import { configureChains, createConfig, WagmiConfig } from 'wagmi';
 import { mainnet, goerli, sepolia, polygon, polygonMumbai } from 'wagmi/chains';
 import { alchemyProvider } from 'wagmi/providers/alchemy';
@@ -49,9 +47,7 @@ export default function RootLayout({
       <body className="flex flex-col min-h-screen justify-between bg-white z-30">
         {ready ? (
           <WagmiConfig config={wagmiConfig}>
-            <RainbowKitProvider chains={_chains}>
-              <div className="flex-grow">{children}</div>
-            </RainbowKitProvider>
+            <div className="flex-grow">{children}</div>
           </WagmiConfig>
         ) : (
           <></>
