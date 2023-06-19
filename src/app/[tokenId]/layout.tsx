@@ -1,8 +1,6 @@
 'use client';
 
-import '../../styles/globals.css';
-import Footer from './Footer';
-import Navbar from './Navbar';
+import '../../../styles/globals.css';
 
 import '@rainbow-me/rainbowkit/styles.css';
 
@@ -48,14 +46,12 @@ export default function RootLayout({
 
   return (
     <html lang="en">
-      <body className="flex flex-col min-h-screen justify-between">
+      <body className="flex flex-col min-h-screen justify-between bg-white z-30">
         {ready ? (
           <WagmiConfig config={wagmiConfig}>
             <RainbowKitProvider chains={_chains}>
-              <Navbar />
               <div className="flex-grow">{children}</div>
             </RainbowKitProvider>
-            <Footer />
           </WagmiConfig>
         ) : (
           <></>
